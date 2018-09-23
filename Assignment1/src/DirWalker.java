@@ -64,12 +64,25 @@ public class DirWalker {
 //					// ex.printStackTrace();
 //				}
 
+				
+				
 				Reader in;
 				try {
 
-					// System.out.println("pppppppppppppp" + f.getAbsolutePath());
+					
 					in = new FileReader(test);
+					
 					Iterable<CSVRecord> records = CSVFormat.EXCEL.parse(in);
+					String delims = "[//]";
+					
+			        String[] tokens = test.split(delims);
+			        
+			        String Day = tokens[10].toString();
+			        String Month = tokens[9].toString();
+			        String Year = tokens[8].toString();
+			        String Date = Year + "/" + Month +"/" + Day;
+			        //System.out.println("pppppppppppppppppppppppppppppppp );= "+ day);
+					//String day = f.getAbsolutePath().toString().substring(File.separator)
 
 					for (CSVRecord record : records) {
 						if (record.getRecordNumber() == 1)
@@ -89,16 +102,16 @@ public class DirWalker {
 							// System.out.println("Data: \n\n\n\n "+ firstname +" \n "+ lastname
 							// +"\n\n\n\n\n\n"+ Number+ "\n\n\n\n"+ country +"\n\n\n\n\n");
 
-//							if (firstname.length() == 0 || lastname.length() == 0 || Number.length() == 0
-//									|| Street.length() == 0 || city.length() == 0 || province.length() == 0
-//									|| postal_code.length() == 0 || country.length() == 0 || phone_number.length() == 0
-//									|| email.length() == 0) {
+							if (firstname.length() == 0 || lastname.length() == 0 || Number.length() == 0
+									|| Street.length() == 0 || city.length() == 0 || province.length() == 0
+									|| postal_code.length() == 0 || country.length() == 0 || phone_number.length() == 0
+									|| email.length() == 0) {
 //								// SkippedRowscount
-//								count++;
+								count++;
 //
-//							}
+							}
 
-//							else {
+							else {
 							sb.append(firstname);
 							sb.append(',');
 							sb.append(lastname);
@@ -119,9 +132,12 @@ public class DirWalker {
 							sb.append(phone_number);
 							sb.append(',');
 							sb.append(email);
+							sb.append(',');
+							sb.append(Date);
 							sb.append('\n');
+							
 							count1++;
-//							}
+							}
 							pw.write(sb.toString());
 
 						} catch (Exception e) {
@@ -130,7 +146,7 @@ public class DirWalker {
 							// TODO: handle exception
 						}
 					}
-					System.out.println("\n\n\n\n\n\n" + count + "\n\n\n\n" + count1);
+					
 
 				} catch (IOException e) {
 					e.printStackTrace();
@@ -173,6 +189,7 @@ public class DirWalker {
 			}
 
 		}
+		
 
 	}
 
@@ -180,15 +197,42 @@ public class DirWalker {
 		final long startTime = System.currentTimeMillis();
 		DirWalker fw = new DirWalker();
 		try {
-			PrintWriter pw = new PrintWriter(new File("/Users/mcda/Documents/GitHub/A00427876_MCDA5510/Assignment1/OUTPUT.csv"));
+			StringBuilder sb = new StringBuilder();
+			sb.append("First Name");
+			sb.append(',');
+			sb.append("Last Name");
+			sb.append(',');
+			sb.append("Number");
+			sb.append(',');
+
+			sb.append("Street");
+			sb.append(',');
+			sb.append("City");
+			sb.append(',');
+			sb.append("Province");
+			sb.append(',');
+			sb.append("Postal_code");
+			sb.append(',');
+			sb.append("country");
+			sb.append(',');
+			sb.append("phone_number");
+			sb.append(',');
+			sb.append("email");
+			sb.append(',');
+			sb.append("Date");
+			sb.append('\n');
+			
+			PrintWriter pw = new PrintWriter(new File("/Users/mcda/Documents/GitHub/A00427876_MCDA5510/Assignment1/OUTPUT4.csv"));
+			pw.write(sb.toString());
 			fw.walk("/Users/mcda/Documents/GitHub/A00427876_MCDA5510/Assignment1/Sample Data", pw);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		final long endTime = System.currentTimeMillis();
+		System.out.println("\n\n\n\n\n\n Skipped Rows = " + count + " Rows" + "\n\n\n\n Valid Rows = " + count1+ " Rows");
 
-		System.out.println("Total execution time:---- " + (endTime - startTime) + " ms");
+		System.out.println("\n\n\n\n Total execution time:---- " + (endTime - startTime) + " ms");
 
 	}
 }
