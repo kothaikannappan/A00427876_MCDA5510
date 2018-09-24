@@ -228,9 +228,9 @@ public class Dirwalker_linux {
 			sb.append("Date");
 			sb.append('\n');
 			
-			PrintWriter pw = new PrintWriter(new File("/Users/mcda/Documents/GitHub/A00427876_MCDA5510/Assignment1/OUTPUT.csv"));
+			PrintWriter pw = new PrintWriter(new File("/home/student_2018_fall/kk_murugappan/Assignment1/Output.csv"));
 			pw.write(sb.toString());
-			fw.walk("/Users/mcda/Documents/GitHub/A00427876_MCDA5510/Assignment1/Sample Data", pw);
+			fw.walk("/home/student_2018_fall/kk_murugappan/Assignment1/Sample Data", pw);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
