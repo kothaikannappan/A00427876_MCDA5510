@@ -9,18 +9,23 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 //import org.relique.jdbc.csv.CsvDriver;
 
 public class DirWalker {
+	
 
 	static int count = 0;
 	static int count1 = 0;
 
 	public void walk(String path, PrintWriter pw) throws FileNotFoundException {
+		System.setProperty("java.util.logging.config.file","./logging.properties");
 
+		
 		File root = new File(path);
 		File[] list = root.listFiles();
 
@@ -142,14 +147,15 @@ public class DirWalker {
 
 						} catch (Exception e) {
 							count++;
-							e.printStackTrace();
 							// TODO: handle exception
+							Logger.getAnonymousLogger().log(Level.SEVERE, e.getLocalizedMessage().toString());
 						}
 					}
 					
 
 				} catch (IOException e) {
-					e.printStackTrace();
+					
+					Logger.getAnonymousLogger().log(Level.SEVERE, e.getLocalizedMessage().toString());
 				}
 
 				// String File = f.getName();
@@ -222,17 +228,18 @@ public class DirWalker {
 			sb.append("Date");
 			sb.append('\n');
 			
-			PrintWriter pw = new PrintWriter(new File("/Users/mcda/Documents/GitHub/A00427876_MCDA5510/Assignment1/OUTPUT4.csv"));
+			PrintWriter pw = new PrintWriter(new File("/Users/mcda/Documents/GitHub/A00427876_MCDA5510/Assignment1/OUTPUT.csv"));
 			pw.write(sb.toString());
 			fw.walk("/Users/mcda/Documents/GitHub/A00427876_MCDA5510/Assignment1/Sample Data", pw);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			Logger.getAnonymousLogger().log(Level.SEVERE, e.getLocalizedMessage().toString());
 		}
 		final long endTime = System.currentTimeMillis();
 		System.out.println("\n\n\n\n\n\n Skipped Rows = " + count + " Rows" + "\n\n\n\n Valid Rows = " + count1+ " Rows");
-
+		Logger.getLogger("Main").log(Level.INFO,"Skipped Rows = " + count + " Rows" + "Valid Rows = " + count1+ " Rows");
 		System.out.println("\n\n\n\n Total execution time:---- " + (endTime - startTime) + " ms");
-
+		Logger.getLogger("Main").log(Level.INFO,"Total execution time:---- " + (endTime - startTime) +" ms");
 	}
 }
