@@ -1,0 +1,10 @@
+Sep 24, 2018 7:30:31 PM Dirwalker_linux walk
+SEVERE: 7
+Sep 24, 2018 7:30:35 PM Dirwalker_linux walk
+SEVERE: 6
+Sep 24, 2018 7:30:36 PM Dirwalker_linux walk
+SEVERE: 1
+Sep 24, 2018 7:30:38 PM Dirwalker_linux main
+INFO: Skipped Rows = 81834 RowsValid Rows = 201075 Rows
+Sep 24, 2018 7:30:38 PM Dirwalker_linux main
+INFO: Total execution time:---- 8239 ms
