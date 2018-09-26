@@ -34,10 +34,10 @@ public class DirWalker {
 
 		for (File f : list) {
 			if (f.isDirectory()) {
-				walk(f.getAbsolutePath(), pw);
-				System.out.println("Dir:" + f.getAbsoluteFile());
+				walk(f.getAbsolutePath(),pw);
+//				System.out.println("Dir:" + f.getAbsoluteFile());
 			} else {
-				System.out.println("File:" + f.getAbsoluteFile());
+//				System.out.println("File:" + f.getAbsoluteFile());
 
 				String test = f.getAbsoluteFile().toString();
 				if (!test.endsWith(".csv")) {
@@ -82,14 +82,17 @@ public class DirWalker {
 					
 			        String[] tokens = test.split(delims);
 			        
-			        String Day = tokens[10].toString();
-			        String Month = tokens[9].toString();
-			        String Year = tokens[8].toString();
+			        String Day = tokens[9].toString();
+			        String Month = tokens[8].toString();
+			        String Year = tokens[7].toString();
 			        String Date = Year + "/" + Month +"/" + Day;
-			        //System.out.println("pppppppppppppppppppppppppppppppp );= "+ day);
+//			        System.out.println("pppppppppppppppppppppppppppppppp );= "+ Day);
 					//String day = f.getAbsolutePath().toString().substring(File.separator)
 
 					for (CSVRecord record : records) {
+                                             try{
+                                                
+                                                  
 						if (record.getRecordNumber() == 1)
 							continue;
 						try {
@@ -150,6 +153,12 @@ public class DirWalker {
 							// TODO: handle exception
 							Logger.getAnonymousLogger().log(Level.SEVERE, e.getLocalizedMessage().toString());
 						}
+                                                }
+                                               catch (Exception e) {
+                                                        count++;
+                                                        // TODO: handle exception
+                                                        Logger.getAnonymousLogger().log(Level.SEVERE, e.getLocalizedMessage().toString());
+                                                }
 					}
 					
 
@@ -228,9 +237,9 @@ public class DirWalker {
 			sb.append("Date");
 			sb.append('\n');
 			
-			PrintWriter pw = new PrintWriter(new File("/Users/mcda/Documents/GitHub/A00427876_MCDA5510/Assignment1/OUTPUT.csv"));
+			PrintWriter pw = new PrintWriter(new File("/home/student_2018_fall/kk_murugappan/A00427876_MCDA5510/Assignment1/Output/Output.csv"));
 			pw.write(sb.toString());
-			fw.walk("/Users/mcda/Documents/GitHub/A00427876_MCDA5510/Assignment1/Sample Data", pw);
+			fw.walk("/home/student_2018_fall/kk_murugappan/A00427876_MCDA5510/Assignment1/Sample Data", pw);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
