@@ -1,0 +1,6 @@
+/Users/mcda/Desktop/untitled folder/MCDA5510_Assignments/ConsoleApp1/ConsoleApp1/bin/Debug/ConsoleApp1.exe.config
+/Users/mcda/Desktop/untitled folder/MCDA5510_Assignments/ConsoleApp1/ConsoleApp1/bin/Debug/ConsoleApp1.exe
+/Users/mcda/Desktop/untitled folder/MCDA5510_Assignments/ConsoleApp1/ConsoleApp1/bin/Debug/ConsoleApp1.pdb
+/Users/mcda/Desktop/untitled folder/MCDA5510_Assignments/ConsoleApp1/ConsoleApp1/obj/Debug/ConsoleApp1.csproj.CoreCompileInputs.cache
+/Users/mcda/Desktop/untitled folder/MCDA5510_Assignments/ConsoleApp1/ConsoleApp1/obj/Debug/ConsoleApp1.exe
+/Users/mcda/Desktop/untitled folder/MCDA5510_Assignments/ConsoleApp1/ConsoleApp1/obj/Debug/ConsoleApp1.pdb
