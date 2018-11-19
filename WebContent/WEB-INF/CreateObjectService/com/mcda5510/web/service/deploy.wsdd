@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from CreateObjectService WSDL service -->
+
+  <service name="CreateObject" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://service.web.mcda5510.com"/>
+      <parameter name="wsdlServiceElement" value="CreateObjectService"/>
+      <parameter name="schemaQualified" value="http://service.web.mcda5510.com"/>
+      <parameter name="wsdlServicePort" value="CreateObject"/>
+      <parameter name="className" value="com.mcda5510.web.service.CreateObject"/>
+      <parameter name="wsdlPortType" value="CreateObject"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://service.web.mcda5510.com" xmlns:retNS="http://service.web.mcda5510.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getObject" qname="operNS:getObject" returnQName="retNS:getObjectReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://service.web.mcda5510.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:Id" type="tns:int"/>
+      </operation>
+      <operation xmlns:operNS="http://service.web.mcda5510.com" xmlns:retNS="http://service.web.mcda5510.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="createObject" qname="operNS:createObject" returnQName="retNS:createObjectReturn" returnType="rtns:boolean" soapAction="">
+        <parameter xmlns:pns="http://service.web.mcda5510.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:ID" type="tns:string"/>
+        <parameter xmlns:pns="http://service.web.mcda5510.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:Name" type="tns:string"/>
+        <parameter xmlns:pns="http://service.web.mcda5510.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:CardNumber" type="tns:string"/>
+        <parameter xmlns:pns="http://service.web.mcda5510.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:price" type="tns:string"/>
+        <parameter xmlns:pns="http://service.web.mcda5510.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:quantity" type="tns:string"/>
+        <parameter xmlns:pns="http://service.web.mcda5510.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:month" type="tns:string"/>
+        <parameter xmlns:pns="http://service.web.mcda5510.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:year" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://service.web.mcda5510.com" xmlns:retNS="http://service.web.mcda5510.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="removeObject" qname="operNS:removeObject" returnQName="retNS:removeObjectReturn" returnType="rtns:boolean" soapAction="">
+        <parameter xmlns:pns="http://service.web.mcda5510.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:Id" type="tns:int"/>
+      </operation>
+      <operation xmlns:operNS="http://service.web.mcda5510.com" xmlns:retNS="http://service.web.mcda5510.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="updateObject" qname="operNS:updateObject" returnQName="retNS:updateObjectReturn" returnType="rtns:boolean" soapAction="">
+        <parameter xmlns:pns="http://service.web.mcda5510.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:ID" type="tns:string"/>
+        <parameter xmlns:pns="http://service.web.mcda5510.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:Name" type="tns:string"/>
+        <parameter xmlns:pns="http://service.web.mcda5510.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:CardNumber" type="tns:string"/>
+        <parameter xmlns:pns="http://service.web.mcda5510.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:price" type="tns:string"/>
+        <parameter xmlns:pns="http://service.web.mcda5510.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:quantity" type="tns:string"/>
+        <parameter xmlns:pns="http://service.web.mcda5510.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:month" type="tns:string"/>
+        <parameter xmlns:pns="http://service.web.mcda5510.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:year" type="tns:string"/>
+      </operation>
+      <parameter name="allowedMethods" value="getObject updateObject createObject removeObject"/>
+
+  </service>
+</deployment>

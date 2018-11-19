@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://service.web.mcda5510.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://service.web.mcda5510.com" xmlns:intf="http://service.web.mcda5510.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://service.web.mcda5510.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="getObject">
+    <complexType>
+     <sequence>
+      <element name="Id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getObjectResponse">
+    <complexType>
+     <sequence>
+      <element name="getObjectReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="createObject">
+    <complexType>
+     <sequence>
+      <element name="ID" type="xsd:string"/>
+      <element name="Name" type="xsd:string"/>
+      <element name="CardNumber" type="xsd:string"/>
+      <element name="price" type="xsd:string"/>
+      <element name="quantity" type="xsd:string"/>
+      <element name="month" type="xsd:string"/>
+      <element name="year" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="createObjectResponse">
+    <complexType>
+     <sequence>
+      <element name="createObjectReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="removeObject">
+    <complexType>
+     <sequence>
+      <element name="Id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="removeObjectResponse">
+    <complexType>
+     <sequence>
+      <element name="removeObjectReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateObject">
+    <complexType>
+     <sequence>
+      <element name="ID" type="xsd:string"/>
+      <element name="Name" type="xsd:string"/>
+      <element name="CardNumber" type="xsd:string"/>
+      <element name="price" type="xsd:string"/>
+      <element name="quantity" type="xsd:string"/>
+      <element name="month" type="xsd:string"/>
+      <element name="year" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateObjectResponse">
+    <complexType>
+     <sequence>
+      <element name="updateObjectReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="createObjectRequest">
+
+      <wsdl:part element="impl:createObject" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateObjectRequest">
+
+      <wsdl:part element="impl:updateObject" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="removeObjectRequest">
+
+      <wsdl:part element="impl:removeObject" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="createObjectResponse">
+
+      <wsdl:part element="impl:createObjectResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getObjectResponse">
+
+      <wsdl:part element="impl:getObjectResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateObjectResponse">
+
+      <wsdl:part element="impl:updateObjectResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getObjectRequest">
+
+      <wsdl:part element="impl:getObject" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="removeObjectResponse">
+
+      <wsdl:part element="impl:removeObjectResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="CreateObject">
+
+      <wsdl:operation name="getObject">
+
+         <wsdl:input message="impl:getObjectRequest" name="getObjectRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getObjectResponse" name="getObjectResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createObject">
+
+         <wsdl:input message="impl:createObjectRequest" name="createObjectRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:createObjectResponse" name="createObjectResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="removeObject">
+
+         <wsdl:input message="impl:removeObjectRequest" name="removeObjectRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:removeObjectResponse" name="removeObjectResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateObject">
+
+         <wsdl:input message="impl:updateObjectRequest" name="updateObjectRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:updateObjectResponse" name="updateObjectResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="CreateObjectSoapBinding" type="impl:CreateObject">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getObject">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getObjectRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getObjectResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createObject">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="createObjectRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="createObjectResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="removeObject">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="removeObjectRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="removeObjectResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateObject">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="updateObjectRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="updateObjectResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="CreateObjectService">
+
+      <wsdl:port binding="impl:CreateObjectSoapBinding" name="CreateObject">
+
+         <wsdlsoap:address location="http://localhost:8011/Assignment_3_java/services/CreateObject"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
