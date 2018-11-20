@@ -2,9 +2,13 @@ package com.mcda5510.dao;
 
 import java.sql.Connection;
 import java.util.Scanner;
+import java.util.logging.ConsoleHandler;
+import java.util.logging.FileHandler;
+import java.util.logging.Formatter;
+import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
+import java.util.logging.SimpleFormatter;
 import com.mcda5510.connect.MyConnection;
 import com.mcda5510.entity.Transaction;
 
@@ -211,6 +215,7 @@ public class MySQLAccess {
 				preparestatement.setInt(1, id);
 				preparestatement.execute();
 				System.out.println("Delete Exectuted Successfully");
+				Logger.getAnonymousLogger().log(Level.INFO,"Removed Successfully ");
 			}
 
 		} catch (SQLException e) {

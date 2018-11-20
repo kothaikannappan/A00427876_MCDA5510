@@ -13,9 +13,9 @@ public class MyConnection {
 			try {
 				Class.forName("com.mysql.cj.jdbc.Driver");
 				connection = DriverManager.getConnection(
-						"jdbc:mysql://localhost:3306/Java_assignment2?useUnicode=t"
+						"jdbc:mysql://localhost:3306/kk_murugappan?useUnicode=t"
 								+ "rue&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
-						"root", "Saibaba1995");
+						"kk_murugappan", "A00427876");
 			} catch (Exception e) {
 				throw e;
 			} finally {
